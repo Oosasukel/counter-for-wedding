@@ -1,8 +1,12 @@
-const targetDate = new Date('2024-03-09T00:00:00Z').getTime();
+const targetDate = new Date('2024-03-09T00:00:00Z').toLocaleString('pt-BR', {
+  timeZone: 'America/Sao_Paulo',
+});
 
 const updateCounter = () => {
-  const now = new Date().getTime();
-  const difference = targetDate - now;
+  const now = new Date().toLocaleString('pt-BR', {
+    timeZone: 'America/Sao_Paulo',
+  });
+  const difference = new Date(targetDate) - new Date(now);
 
   const days = padNumber(Math.floor(difference / (1000 * 60 * 60 * 24)));
   const hours = padNumber(
